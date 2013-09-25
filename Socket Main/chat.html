@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>websocket_PHP</title>
+    <link rel="stylesheet" href="./static/css/style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="./static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="./static/css/style.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="./static/js/html5shiv.js"></script>
+    <script src="./static/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<ul class="msgLogBx" id="J_msgLogBx"></ul>
+<div id="J_controlBx">
+    <input type="button" class="J_connetSocket" value="连接">
+    <input type="button" class="J_disSocket" value="断开">
+    <input type="text" id="text" value="">
+    <input type="button" class="J_sendSocket" value="发送">
+    <input type="button" class="J_getUsrs" value="获取用户">
+</div>
+<div id="msgBx"></div>
+<div class="modal-dialog socket-login-form">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Window Title</h4>
+        </div>
+        <form class="modal-body form-horizontal" id="socket-login-form">
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="inputEmail3">昵称</label>
+                <div class="col-sm-10">
+                    <input type="email" placeholder="Email" id="inputEmail3" name="usrname" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-primary socket-subform" type="button">确定</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" src="./static/js/jquery.js"></script>
+<script type="text/javascript" src="./static/js/socket.js"></script>
+<script src="./static/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        //socketFed.socketLoadFun(/*window['location']['hostname']*/);
+        socketFed.login();
+    });
+  </script>
+</body>
+</html>
