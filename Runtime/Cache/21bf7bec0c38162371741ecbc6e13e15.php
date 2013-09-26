@@ -10,7 +10,6 @@
     <meta charset="utf-8"/>
     <title><?php echo ($webTitle); ?></title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
     <link href="/media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
@@ -19,10 +18,8 @@
     <link href="/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
     <link href="/media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
     <link href="/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
-    <!-- END GLOBAL MANDATORY STYLES -->
-    <!-- BEGIN PAGE LEVEL STYLES -->
     <link href="/media/css/login.css" rel="stylesheet" type="text/css"/>
-    <!-- END PAGE LEVEL STYLES -->
+    <link href="/media/css/socket/socket.css" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" href="/media/image/favicon.ico"/>
 </head>
 <!-- END HEAD -->
@@ -98,7 +95,7 @@
         <li>
             <a href="javascript:;"><i class=" icon-comments-alt"></i><span class="title">聊天室</span><span class="arrow "></span></a>
             <ul class="sub-menu">
-                <li><a href="<?php echo U("chat/in");?>"><i class="icon-group"></i>进入聊天室</a></li>
+                <li><a href="<?php echo U("chat/in");?>"><i class="icon-group"></i> 进入聊天室</a></li>
                 <li><a href="layout_horizontal_menu1.html">Horzontal Menu 1</a></li>
                 <li><a href="layout_horizontal_menu2.html">Horzontal Menu 2</a></li>
                 <li><a href="layout_promo.html">Promo Page</a></li>
@@ -262,7 +259,60 @@
         </li>
         <li class="last "><a href="charts.html"><i class="icon-bar-chart"></i><span class="title">Visual Charts</span></a></li>
     </ul>
-</div>    <div class="page-content">        <div class="container-fluid">        <div class="row-fluid">            <div class="span12">                <div class="color-panel hidden-phone">                    <div class="color-mode-icons icon-color"></div>                    <div class="color-mode-icons icon-color-close"></div>                    <div class="color-mode">                        <p>                            THEME COLOR                        </p>                        <ul class="inline">                            <li class="color-black current color-default" data-style="default"></li>                            <li class="color-blue" data-style="blue"></li>                            <li class="color-brown" data-style="brown"></li>                            <li class="color-purple" data-style="purple"></li>                            <li class="color-grey" data-style="grey"></li>                            <li class="color-white color-light" data-style="light"></li>                        </ul>                        <label><span>Layout</span>                            <select class="layout-option m-wrap small">                                <option value="fluid" selected>Fluid</option>                                <option value="boxed">Boxed</option>                            </select>                        </label><label><span>Header</span>                        <select class="header-option m-wrap small">                            <option value="fixed" selected>Fixed</option>                            <option value="default">Default</option>                        </select>                    </label><label><span>Sidebar</span>                        <select class="sidebar-option m-wrap small">                            <option value="fixed">Fixed</option>                            <option value="default" selected>Default</option>                        </select>                    </label><label><span>Footer</span>                        <select class="footer-option m-wrap small">                            <option value="fixed">Fixed</option>                            <option value="default" selected>Default</option>                        </select>                    </label>                    </div>                </div>                <h3 class="page-title">Dashboard                    <small>statistics and more</small>                </h3>                <ul class="breadcrumb">                    <li><i class="icon-home"></i><a href="index.html">Home</a><i class="icon-angle-right"></i></li>                    <li><a href="#">Dashboard</a></li>                    <li class="pull-right no-text-shadow">                        <div id="dashboard-report-range" class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive" style="display:block;">                            <i class="icon-calendar"></i><span><?php echo date("Y-m-d H:i"); ?></span><!--<i class="icon-angle-down"></i>-->                        </div>                    </li>                </ul>            </div>        </div>            <div id="dashboard">           <div class="row-fluid">            <div class="span3 responsive" data-tablet="span6" data-desktop="span3">                <div class="dashboard-stat blue">                    <div class="visual">                        <i class="icon-comments"></i>                    </div>                    <div class="details">                        <div class="number">                            1349                        </div>                        <div class="desc">                            New Feedbacks                        </div>                    </div>                    <a class="more" href="#">View more<i class="m-icon-swapright m-icon-white"></i></a>                </div>            </div>            <div class="span3 responsive" data-tablet="span6" data-desktop="span3">                <div class="dashboard-stat green">                    <div class="visual">                        <i class="icon-shopping-cart"></i>                    </div>                    <div class="details">                        <div class="number">                            549                        </div>                        <div class="desc">                            New Orders                        </div>                    </div>                    <a class="more" href="#">View more<i class="m-icon-swapright m-icon-white"></i></a>                </div>            </div>            <div class="span3 responsive" data-tablet="span6 fix-offset" data-desktop="span3">                <div class="dashboard-stat purple">                    <div class="visual">                        <i class="icon-globe"></i>                    </div>                    <div class="details">                        <div class="number">                            +89%                        </div>                        <div class="desc">                            Brand Popularity                        </div>                    </div>                    <a class="more" href="#">View more<i class="m-icon-swapright m-icon-white"></i></a>                </div>            </div>            <div class="span3 responsive" data-tablet="span6" data-desktop="span3">                <div class="dashboard-stat yellow">                    <div class="visual">                        <i class="icon-bar-chart"></i>                    </div>                    <div class="details">                        <div class="number">                            12,5M$                        </div>                        <div class="desc">                            Total Profit                        </div>                    </div>                    <a class="more" href="#">View more<i class="m-icon-swapright m-icon-white"></i></a>                </div>            </div>        </div>            </div>        </div>    </div></div><div class="footer">
+</div>    <div class="page-content">        <div class="container-fluid">        <div class="row-fluid">
+    <div class="span12">
+        <div class="color-panel hidden-phone">
+            <div class="color-mode-icons icon-color"></div>
+            <div class="color-mode-icons icon-color-close"></div>
+            <div class="color-mode">
+                <p>
+                    THEME COLOR
+                </p>
+                <ul class="inline">
+                    <li class="color-black current color-default" data-style="default"></li>
+                    <li class="color-blue" data-style="blue"></li>
+                    <li class="color-brown" data-style="brown"></li>
+                    <li class="color-purple" data-style="purple"></li>
+                    <li class="color-grey" data-style="grey"></li>
+                    <li class="color-white color-light" data-style="light"></li>
+                </ul>
+                <label><span>Layout</span>
+                    <select class="layout-option m-wrap small">
+                        <option value="fluid" selected>Fluid</option>
+                        <option value="boxed">Boxed</option>
+                    </select>
+                </label><label><span>Header</span>
+                <select class="header-option m-wrap small">
+                    <option value="fixed" selected>Fixed</option>
+                    <option value="default">Default</option>
+                </select>
+            </label><label><span>Sidebar</span>
+                <select class="sidebar-option m-wrap small">
+                    <option value="fixed">Fixed</option>
+                    <option value="default" selected>Default</option>
+                </select>
+            </label><label><span>Footer</span>
+                <select class="footer-option m-wrap small">
+                    <option value="fixed">Fixed</option>
+                    <option value="default" selected>Default</option>
+                </select>
+            </label>
+            </div>
+        </div>
+        <h3 class="page-title">Dashboard
+            <small>statistics and more</small>
+        </h3>
+        <ul class="breadcrumb">
+            <li><i class="icon-home"></i><a href="index.html">Home</a><i class="icon-angle-right"></i></li>
+            <li><a href="#">Dashboard</a></li>
+            <li class="pull-right no-text-shadow">
+                <div id="dashboard-report-range" class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive" style="display:block;">
+                    <i class="icon-calendar"></i><span><?php echo date("Y-m-d H:i"); ?></span><!--<i class="icon-angle-down"></i>-->
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>        <div id="dashboard">           <div class="row-fluid">            <div class="span3 responsive" data-tablet="span6" data-desktop="span3">                <div class="dashboard-stat blue">                    <div class="visual">                        <i class="icon-comments"></i>                    </div>                    <div class="details">                        <div class="number">                            1349                        </div>                        <div class="desc">                            New Feedbacks                        </div>                    </div>                    <a class="more" href="#">View more<i class="m-icon-swapright m-icon-white"></i></a>                </div>            </div>            <div class="span3 responsive" data-tablet="span6" data-desktop="span3">                <div class="dashboard-stat green">                    <div class="visual">                        <i class="icon-shopping-cart"></i>                    </div>                    <div class="details">                        <div class="number">                            549                        </div>                        <div class="desc">                            New Orders                        </div>                    </div>                    <a class="more" href="#">View more<i class="m-icon-swapright m-icon-white"></i></a>                </div>            </div>            <div class="span3 responsive" data-tablet="span6 fix-offset" data-desktop="span3">                <div class="dashboard-stat purple">                    <div class="visual">                        <i class="icon-globe"></i>                    </div>                    <div class="details">                        <div class="number">                            +89%                        </div>                        <div class="desc">                            Brand Popularity                        </div>                    </div>                    <a class="more" href="#">View more<i class="m-icon-swapright m-icon-white"></i></a>                </div>            </div>            <div class="span3 responsive" data-tablet="span6" data-desktop="span3">                <div class="dashboard-stat yellow">                    <div class="visual">                        <i class="icon-bar-chart"></i>                    </div>                    <div class="details">                        <div class="number">                            12,5M$                        </div>                        <div class="desc">                            Total Profit                        </div>                    </div>                    <a class="more" href="#">View more<i class="m-icon-swapright m-icon-white"></i></a>                </div>            </div>        </div>            </div>        </div>    </div></div><div class="footer">
     <div class="footer-tools">
         <span class="go-top"><i class="icon-angle-up"></i></span>
     </div>

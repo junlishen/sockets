@@ -2446,3 +2446,318 @@ INFO: [ view_end ] --START--
 INFO: ShowPageTrace Behavior ::run [ RunTime:0.000514s ]
 INFO: [ view_end ] --END-- [ RunTime:0.000551s ]
 
+[ 2013-09-26T16:44:10+08:00 ] 127.0.0.1 /
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000616s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000677s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.012392s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012434s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000436s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000429s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000348s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000460s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001769s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000585s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000629s ]
+
+[ 2013-09-26T16:44:13+08:00 ] 127.0.0.1 /index/login
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000783s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000848s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000401s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000442s ]
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+SQL: SHOW COLUMNS FROM `jl_user` [ RunTime:0.024090s ]
+SQL: SELECT * FROM `jl_user` WHERE ( `username`='a' and `password` = 'a' )  [ RunTime:0.018571s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: webTitle D:\webRoot\sockets\Runtime\Cache\a3231c4a29b1853c1192f8d2c7942c50.php 第 11 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.011946s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012068s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000763s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000570s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000423s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000755s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002758s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000965s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001074s ]
+
+[ 2013-09-26T16:44:15+08:00 ] 127.0.0.1 /main/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000956s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001042s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000763s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000830s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: webTitle D:\webRoot\sockets\Runtime\Cache\21bf7bec0c38162371741ecbc6e13e15.php 第 11 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.019556s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019618s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000486s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000352s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000277s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000428s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001662s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000538s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000582s ]
+
+[ 2013-09-26T16:44:18+08:00 ] 127.0.0.1 /chat/in
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000741s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000806s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000557s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000605s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: webTitle D:\webRoot\sockets\Runtime\Cache\4373b205b863e69005e949aacbf695ea.php 第 11 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.014104s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014158s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000583s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000428s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000306s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000450s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001899s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000581s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000629s ]
+
+[ 2013-09-26T16:45:22+08:00 ] 127.0.0.1 /chat/in
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001176s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001344s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000880s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000990s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: webTitle D:\webRoot\sockets\Runtime\Cache\4373b205b863e69005e949aacbf695ea.php 第 11 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.019385s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019466s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000373s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000271s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000193s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000318s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001246s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000389s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000424s ]
+
+[ 2013-09-26T16:47:55+08:00 ] 127.0.0.1 /chat/in
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000800s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000868s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000500s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000548s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: webTitle D:\webRoot\sockets\Runtime\Cache\4373b205b863e69005e949aacbf695ea.php 第 11 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.014579s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014637s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000619s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000430s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000325s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000463s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001973s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000695s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000739s ]
+
+[ 2013-09-26T16:48:01+08:00 ] 127.0.0.1 /chat/in
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000631s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000683s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000425s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000463s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: webTitle D:\webRoot\sockets\Runtime\Cache\4373b205b863e69005e949aacbf695ea.php 第 11 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.011401s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011453s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000448s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000326s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000247s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000369s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001485s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000607s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000664s ]
+
+[ 2013-09-26T16:49:15+08:00 ] 127.0.0.1 /chat/in
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001525s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001780s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000995s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001074s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: webTitle D:\webRoot\sockets\Runtime\Cache\4373b205b863e69005e949aacbf695ea.php 第 11 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.025287s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025382s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.001056s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000841s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000667s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000996s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003799s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001027s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001105s ]
+
+[ 2013-09-26T16:49:21+08:00 ] 127.0.0.1 /chat/in
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001355s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001481s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000893s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000976s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: webTitle D:\webRoot\sockets\Runtime\Cache\4373b205b863e69005e949aacbf695ea.php 第 11 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.019826s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019902s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000479s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000336s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000241s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000395s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001565s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000518s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000562s ]
+
+[ 2013-09-26T16:50:26+08:00 ] 127.0.0.1 /chat/in
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001580s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001726s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001034s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001123s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: webTitle D:\webRoot\sockets\Runtime\Cache\4373b205b863e69005e949aacbf695ea.php 第 11 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.013986s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014062s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000556s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000461s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000374s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000501s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002016s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000581s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000633s ]
+
+[ 2013-09-26T16:51:21+08:00 ] 127.0.0.1 /chat/in
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000760s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000820s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000435s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000473s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: webTitle D:\webRoot\sockets\Runtime\Cache\4373b205b863e69005e949aacbf695ea.php 第 11 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.012446s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012510s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000559s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000367s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000309s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000467s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001816s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000545s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000585s ]
+
+[ 2013-09-26T16:53:40+08:00 ] 127.0.0.1 /chat/in
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000982s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001095s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000619s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000668s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: webTitle D:\webRoot\sockets\Runtime\Cache\4373b205b863e69005e949aacbf695ea.php 第 11 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.014332s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014406s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000498s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000434s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000297s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000450s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001792s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000552s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000595s ]
+
+[ 2013-09-26T16:54:42+08:00 ] 127.0.0.1 /chat/in
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001166s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001267s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000974s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001092s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: webTitle D:\webRoot\sockets\Runtime\Cache\4373b205b863e69005e949aacbf695ea.php 第 11 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.017735s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017817s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000455s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000316s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000233s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000361s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001458s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000459s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000494s ]
+
+[ 2013-09-26T16:54:48+08:00 ] 127.0.0.1 /chat/in
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001372s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001477s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000891s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000974s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: webTitle D:\webRoot\sockets\Runtime\Cache\4373b205b863e69005e949aacbf695ea.php 第 11 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.014169s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014231s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000472s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000351s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000267s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000436s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001631s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000547s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000586s ]
+
+[ 2013-09-26T16:56:42+08:00 ] 127.0.0.1 /chat/in
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001388s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001547s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000826s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000906s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: webTitle D:\webRoot\sockets\Runtime\Cache\4373b205b863e69005e949aacbf695ea.php 第 11 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.016196s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016256s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000359s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000264s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000192s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000315s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001224s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000421s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000456s ]
+

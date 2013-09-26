@@ -326,15 +326,13 @@
                     <div class="portlet-title">
                         <div class="caption"><i class="icon-comments"></i>聊天内容</div>
                     </div>
-                    <div class="portlet-body">
-
-                    </div>
+                    <div class="portlet-body"></div>
                 </div>
             </div>
             <div class="span4">
                 <div class="portlet box blue chat-list-users">
                     <div class="portlet-title">
-                        <div class="caption"><i class="icon-group"></i>聊天用户组</div>
+                        <div class="caption"><i class="icon-group"></i>聊天组</div>
                     </div>
                     <div class="portlet-body">
 
@@ -349,7 +347,7 @@
     <div class="footer-tools">
         <span class="go-top"><i class="icon-angle-up"></i></span>
     </div>
-    <div class="footer-inner" style="display:block;float:none;color:#fff;text-align:center"><?php echo date("Y"); ?> - <?php echo date("Y")+1; ?> &copy; Socket by Junli.</div>
+    <div class="footer-inner" style="display:block;float:none;color:#fff;text-align:center"><?php echo date("Y"); ?> - <?php echo date("Y")+1; ?> &copy; <?php echo C('siteTitle');?> by Junli.</div>
 </div>
 <script src="/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
 <script src="/media/js/bootstrap.min.js" type="text/javascript"></script>
