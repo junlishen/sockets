@@ -10,7 +10,6 @@
     <meta charset="utf-8"/>
     <title><?php echo ($webTitle); ?></title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
     <link href="/media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
@@ -19,15 +18,13 @@
     <link href="/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
     <link href="/media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
     <link href="/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
-    <!-- END GLOBAL MANDATORY STYLES -->
-    <!-- BEGIN PAGE LEVEL STYLES -->
     <link href="/media/css/login.css" rel="stylesheet" type="text/css"/>
-    <!-- END PAGE LEVEL STYLES -->
+    <link href="/media/css/socket/socket.css" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" href="/media/image/favicon.ico"/>
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
-<body class="page-header-fixed">
+<body class="page-header-fixed"  id="chatIn">
 <div class="header navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">
@@ -267,6 +264,86 @@
         <li class="last "><a href="charts.html"><i class="icon-bar-chart"></i><span class="title">Visual Charts</span></a></li>
     </ul>
 </div>
+    <div class="page-content">
+        <div class="container-fluid">
+        <div class="row-fluid">
+    <div class="span12">
+        <div class="color-panel hidden-phone">
+            <div class="color-mode-icons icon-color"></div>
+            <div class="color-mode-icons icon-color-close"></div>
+            <div class="color-mode">
+                <p>
+                    THEME COLOR
+                </p>
+                <ul class="inline">
+                    <li class="color-black current color-default" data-style="default"></li>
+                    <li class="color-blue" data-style="blue"></li>
+                    <li class="color-brown" data-style="brown"></li>
+                    <li class="color-purple" data-style="purple"></li>
+                    <li class="color-grey" data-style="grey"></li>
+                    <li class="color-white color-light" data-style="light"></li>
+                </ul>
+                <label><span>Layout</span>
+                    <select class="layout-option m-wrap small">
+                        <option value="fluid" selected>Fluid</option>
+                        <option value="boxed">Boxed</option>
+                    </select>
+                </label><label><span>Header</span>
+                <select class="header-option m-wrap small">
+                    <option value="fixed" selected>Fixed</option>
+                    <option value="default">Default</option>
+                </select>
+            </label><label><span>Sidebar</span>
+                <select class="sidebar-option m-wrap small">
+                    <option value="fixed">Fixed</option>
+                    <option value="default" selected>Default</option>
+                </select>
+            </label><label><span>Footer</span>
+                <select class="footer-option m-wrap small">
+                    <option value="fixed">Fixed</option>
+                    <option value="default" selected>Default</option>
+                </select>
+            </label>
+            </div>
+        </div>
+        <h3 class="page-title">Dashboard
+            <small>statistics and more</small>
+        </h3>
+        <ul class="breadcrumb">
+            <li><i class="icon-home"></i><a href="index.html">Home</a><i class="icon-angle-right"></i></li>
+            <li><a href="#">Dashboard</a></li>
+            <li class="pull-right no-text-shadow">
+                <div id="dashboard-report-range" class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive" style="display:block;">
+                    <i class="icon-calendar"></i><span><?php echo date("Y-m-d H:i"); ?></span><!--<i class="icon-angle-down"></i>-->
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+        <div class="row-fluid">
+            <div class="span8">
+                <div class="portlet box green chat-list-comments">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>聊天内容</div>
+                    </div>
+                    <div class="portlet-body">
+
+                    </div>
+                </div>
+            </div>
+            <div class="span4">
+                <div class="portlet box blue chat-list-users">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-group"></i>聊天用户组</div>
+                    </div>
+                    <div class="portlet-body">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
 </div>
 <div class="footer">
     <div class="footer-tools">
