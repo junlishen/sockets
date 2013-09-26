@@ -55,6 +55,12 @@ function WSevent($type,$event){
             $websocket->log($msgs);
             $sendOneMsg['flag'] = 'one';
             $sendOneMsg['sign'] = $event['sign'];
+        }elseif($recvMsg['type']=="getselfinfo"){
+            $selfInfo = $_SESSION['usrinfo'];
+            $msgs = '{"type":"getselfinfo","msg":['.$selfInfo.']}';
+            $websocket->log($msgs);
+            $sendOneMsg['flag'] = 'one';
+            $sendOneMsg['sign'] = $event['sign'];
         }
 
     }

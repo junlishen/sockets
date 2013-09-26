@@ -63,6 +63,9 @@ var socketFed = {
             case 'allusrinfo':
                 msgTxtBx.text(JSON.stringify(msgData));
                 break;
+            case 'getselfinfo':
+                msgTxtBx.text(JSON.stringify(msgData));
+                break;
             default ://msgData['type']=="msg"
                 msgInfo = "<dl><dt><b>"+msgData['id']+"("+msgData['id']+")</b> <span class='msgTime'>"+messageTim+"</span></dt><dd class='pic'></dd><dd class='msgCont'>"+msgData['msg']+"</dd></dl>";
                 $('<li>'+msgInfo+'</li>').appendTo(msgBx);
@@ -104,6 +107,9 @@ var socketFed = {
                     _socket.send(sendData);
                 }else if($(this).hasClass('J_getUsrs')){
                     var sendData = JSON.stringify({"type":"getallusrinfo"});
+                    _socket.send(sendData);
+                }else if($(this).hasClass('J_getSeftInfo')){
+                    var sendData = JSON.stringify({"type":"getselfinfo"});
                     _socket.send(sendData);
                 }
                 return false;
