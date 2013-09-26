@@ -69,8 +69,8 @@ var socketFed = {
         }
     },
     socketLoadFun:function(host){
-//        var socketHost = host||'172.16.3.9'
-        var socketHost = host||'192.168.0.25'
+        var socketHost = host||'172.16.3.9'
+        //var socketHost = host||'192.168.0.25'
             ,_socket = null
             ,textBx = $('#text');
         function socketLink(){

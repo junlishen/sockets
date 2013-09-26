@@ -12,7 +12,17 @@
                     <div class="portlet-title">
                         <div class="caption"><i class="icon-comments"></i>聊天内容</div>
                     </div>
-                    <div class="portlet-body"></div>
+                    <div class="portlet-body">
+                        <ul class="msgLogBx" id="J_msgLogBx"></ul>
+                        <div id="J_controlBx">
+                            <input type="button" class="J_connetSocket" value="连接">
+                            <input type="button" class="J_disSocket" value="断开">
+                            <input type="text" id="text" value="">
+                            <input type="button" class="J_sendSocket" value="发送">
+                            <input type="button" class="J_getUsrs" value="获取用户">
+                        </div>
+                        <div id="msgBx"></div>
+                    </div>
                 </div>
             </div>
             <div class="span4">
@@ -21,7 +31,19 @@
                         <div class="caption"><i class="icon-group"></i>聊天组</div>
                     </div>
                     <div class="portlet-body">
-
+                        <form class="modal-body form-horizontal" id="socket-login-form">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="inputEmail3">昵称</label>
+                                <div class="col-sm-10">
+                                    <input type="email" placeholder="Email" id="inputEmail3" name="usrname" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button class="btn btn-primary socket-subform" type="button">确定</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -30,5 +52,11 @@
     </div>
 </div>
 <include file="Tpl/footer.html"/>
+<script type="text/javascript" src="/media/js/socket/socket.js"></script>
+<script type="text/javascript">
+    $(function(){
+        socketFed.login();
+    });
+</script>
 </body>
 </html>
