@@ -9,6 +9,7 @@ $config = array(
 );
 $websocket = new websocket($config);
 $websocket->run();
+session_start();
 /*$Mcache->get('key1')*/
 function WSevent($type,$event){
     global $websocket;
