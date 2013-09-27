@@ -24,12 +24,12 @@ return array(
 
     //数据库配置信息
     'DB_TYPE'=> 'mysql',// 指定数据库是mysql
-    'DB_HOST'=> '27.54.242.248',
+    'DB_HOST'=> '*.*.*.*',
     'DB_NAME'=>'jl_socket', // 数据库名
-    'DB_USER'=>'jl',
-    'DB_PWD'=>'jl121', //您的数据库连接密码
+    'DB_USER'=>'*',
+    'DB_PWD'=>'*', //您的数据库连接密码
     'DB_PORT'=>'3306',
-    'DB_PREFIX'=>'jl_',//数据表前缀（与数据库myapp中的表think_message对应）
+    'DB_PREFIX'=>'*_',//数据表前缀（与数据库myapp中的表think_message对应）
 
 );
 ?>
