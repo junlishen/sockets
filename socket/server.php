@@ -9,11 +9,9 @@ $config = array(
 );
 $websocket = new websocket($config);
 $websocket->run();
-session_start();
-/*$Mcache->get('key1')*/
 function WSevent($type,$event){
     global $websocket;
-    $Mcache = $websocket->Mcache;
+    /*$Mcache = $websocket->Mcache;*/
     $signStr = (string)$event['sign'];
     $signNum = preg_replace('/[^\d]+/','',$signStr);
 
@@ -34,7 +32,7 @@ function WSevent($type,$event){
 
         if($recvMsg['type']=='msg'){
             $msgs = '{"type":"msg","id":'.$signNum.',"msg":"'.$recvMsg['msg'].'"}';
-            print_r($Mcache->get('key1'));
+            /*print_r($Mcache->get('key1'));*/
 
         }else if($recvMsg['type']=='usrinfo'){
             $usrInfo = json_encode($recvMsg['info'],true);
@@ -57,11 +55,15 @@ function WSevent($type,$event){
             $sendOneMsg['flag'] = 'one';
             $sendOneMsg['sign'] = $event['sign'];
         }elseif($recvMsg['type']=="getselfinfo"){
-            $selfInfo = $_SESSION['usrinfo'];
-            $msgs = '{"type":"getselfinfo","msg":['.$selfInfo.']}';
+            /*var_dump($_SERVER);
+            session_start();
+            $selfInfo = json_encode($_SESSION['usrinfo']);*/
+            /*$selfInfo = json_encode(getallheaders());
+            $msgs = '{"type":"getselfinfo","msg":'.$selfInfo.'}';
             $websocket->log($msgs);
             $sendOneMsg['flag'] = 'one';
-            $sendOneMsg['sign'] = $event['sign'];
+            $sendOneMsg['sign'] = $event['sign'];*/
+            /*session_end();*/
         }
 
     }
@@ -69,7 +71,7 @@ function WSevent($type,$event){
     $msg = $websocket->code($msgs);
     $msgLen = strlen($msg);
     if($sendOneMsg['flag'] == 'one'){
-        socket_write($sendOneMsg['sign'], $msg, $msgLen);
+        socket_write($sendOneMsg['sign'], $msg, $msgLen);//单人发送
     }else{
         $logUsrs = $websocket->sockets;
         unset($logUsrs[0]);
@@ -78,6 +80,5 @@ function WSevent($type,$event){
             socket_write($val, $msg, $msgLen);
         }
     }
-    /*socket_write($event['sign'], $msg, $msgLen);*///单人发送
 }
 ?>
