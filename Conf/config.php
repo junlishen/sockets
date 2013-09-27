@@ -1,6 +1,10 @@
 <?php
 return array(
     //'配置项'=>'配置值'
+    /*网站变量*/
+    "siteTitle"=>"Socket Using",
+
+    /*网站配置*/
     'URL_MODEL' => '2', //URL模式
     'URL_CASE_INSENSITIVE' =>true,//不区分URL大小写
     'SESSION_AUTO_START' => true, //是否开启session
@@ -15,6 +19,8 @@ return array(
     'TMPL_PARSE_STRING' =>  array( // 添加输出替换
         '__UPLOAD__'    =>  __ROOT__.'/Uploads',
     ),
+
+
 
     //数据库配置信息
     'DB_TYPE'=> 'mysql',// 指定数据库是mysql
