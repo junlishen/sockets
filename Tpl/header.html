@@ -10,6 +10,7 @@
     <meta charset="utf-8"/>
     <title>{$webTitle}</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link rel="shortcut icon" href="/media/image/favicon.ico"/>
     <link href="/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
     <link href="/media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
@@ -20,7 +21,12 @@
     <link href="/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
     <link href="/media/css/login.css" rel="stylesheet" type="text/css"/>
     <link href="/media/css/socket/socket.css" rel="stylesheet" type="text/css"/>
-    <link rel="shortcut icon" href="/media/image/favicon.ico"/>
+    <script src="/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+    <script src="/media/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/media/js/app.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var usrInfo = <?php echo json_encode($_SESSION['usrinfo']); ?>;
+    </script>
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->

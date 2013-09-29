@@ -1,5 +1,5 @@
 var socketFed = {
-    usrInfo:{'type':'usrinfo','info':false,'msg':"用户登录"},
+    usrInfo:{'type':'usrinfo','info':{/*"usrname":usrInfo['usrname'],*/"usrid":usrInfo['usrid'],"checkid":usrInfo['checkid']},'msg':"用户登录"},
     emptyVal:function(args){
         for(var i in args){
             if((/\s+/gi).test(args[i])||args[i]==""){
@@ -16,29 +16,6 @@ var socketFed = {
             val[_nowVal['name']]=serialzs[i]['value'];
         }
         return val;
-    },
-    login:function(){
-        var _loginBx = $('.socket-login-form');
-        _loginBx.show();
-        /*$('.socket-login-form').hide();*/
-        $("button",_loginBx).on({
-            click:function(){
-                var _this = $(this)
-                    ,formVals;
-                if(_this.hasClass('socket-subform')){
-                    formVals = socketFed.serialzeVal($('#socket-login-form').serializeArray());
-                    if(!socketFed.emptyVal(formVals)){
-                        socketFed.usrInfo['info'] = formVals;
-                        _loginBx.hide();
-                        socketFed.socketLoadFun(/*window['location']['hostname']*/);
-                    }else{
-                     alert('请输入你的登录信息');
-                    }
-                }else{
-                    _loginBx.hide();
-                }
-            }
-        });
     },
     getTime:function(dataParse){
         var time = new Date(dataParse);;
@@ -67,7 +44,7 @@ var socketFed = {
                 msgTxtBx.text(JSON.stringify(msgData));
                 break;
             default ://msgData['type']=="msg"
-                msgInfo = "<dl><dt><b>"+msgData['id']+"("+msgData['id']+")</b> <span class='msgTime'>"+messageTim+"</span></dt><dd class='pic'></dd><dd class='msgCont'>"+msgData['msg']+"</dd></dl>";
+                msgInfo = "<dl><dt><b usrid='"+msgData['id']+"'>"+msgData['usrnick']+":</b> <span class='msgTime'>"+messageTim+"</span></dt><dd class='pic'></dd><dd class='msgCont'>"+msgData['msg']+"</dd></dl>";
                 $('<li>'+msgInfo+'</li>').appendTo(msgBx);
         }
     },
@@ -93,7 +70,6 @@ var socketFed = {
             }
         }
         socketLink();
-
         $("input",'#J_controlBx').on({
             click:function(){
                 if($(this).hasClass('J_connetSocket')){
@@ -102,7 +78,7 @@ var socketFed = {
                     _socket.close();
                     _socket = null;
                 }else if($(this).hasClass('J_sendSocket')){
-                    var _sendVal = {"type":"msg","msg":textBx.val()}
+                    var _sendVal = {"type":"msg","usrid":usrInfo['usrid'],"msg":textBx.val()}
                         ,sendData = JSON.stringify(_sendVal);
                     _socket.send(sendData);
                 }else if($(this).hasClass('J_getUsrs')){
@@ -113,6 +89,29 @@ var socketFed = {
                     _socket.send(sendData);
                 }
                 return false;
+            }
+        });
+    },
+    login:function(){
+        var _loginBx = $('.socket-login-form');
+        _loginBx.show();
+        /*$('.socket-login-form').hide();*/
+        $("button",_loginBx).on({
+            click:function(){
+                var _this = $(this)
+                    ,formVals;
+                if(_this.hasClass('socket-subform')){
+                    formVals = socketFed.serialzeVal($('#socket-login-form').serializeArray());
+                    if(!socketFed.emptyVal(formVals)){
+                        socketFed.usrInfo['info'] = formVals;
+                        _loginBx.hide();
+                        socketFed.socketLoadFun(/*window['location']['hostname']*/);
+                    }else{
+                        alert('请输入你的登录信息');
+                    }
+                }else{
+                    _loginBx.hide();
+                }
             }
         });
     }
