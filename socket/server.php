@@ -1,11 +1,10 @@
 <?php
 include 'websocket.class.php';
 $config = array(
-    'address' => '172.16.3.9',
-   // 'address' => '192.168.0.25',
+    //'address' => '172.16.3.9',
+    'address' => '192.168.0.25',
     'port' => '12345',
     'event' => 'WSevent', //回调函数的函数名
-    'log' => true,
 );
 $websocket = new websocket($config);
 $websocket->run();
@@ -30,10 +29,10 @@ function WSevent($type,$event){
             'msg'=>$signNum.'已下线!'
         );
     } elseif ($type=='msg') {
-        $websocket->log($signNum.'消息:' . $event['msg']);
         $recvMsg = json_decode($event['msg'],true);
-        /*print_r($recvMsg);*/
         $usrs = $Mcache->get('usrs');
+
+        $websocket->log($signNum.'消息:' . $event['msg']);
 
         if($recvMsg['type']=='msg'){
             $usrid = $recvMsg['usrid'];
@@ -46,47 +45,36 @@ function WSevent($type,$event){
                 'msg'=>$recvMsg['msg'],
                 'type'=>$recvMsg['msg']
             );
-
         }else if($recvMsg['type']=='usrinfo'){
-            /*$usrid = $recvMsg['info']['usrid'];
-            $usrnick = $usrs[$usrid]['usrnick'];
-            $usrInfo = json_encode($recvMsg['info'],true);
-            $msgs = '{"type":"usrin","id":'.$usrid.',"usrname":"'.$usrnick.'","info":'.$usrInfo.',"msg":"用户信息"}';*/
-
-            $usrInfo = json_encode($recvMsg['info'],true);
+            $usrid = $recvMsg['info']['usrid'];
+            $usrInfo = array(
+                'usrid'=>$usrs[$usrid]['usrid'],
+                'usrnick'=>$usrs[$usrid]['usrnick'],
+                'pic'=>$usrs[$usrid]['pic']
+            );
             $msgs = array(
                 "type"=>"usrin",
                 "info"=>$usrInfo,
                 "msg"=>"用户信息"
             );
-
         }else if($recvMsg['type']=='getallusrinfo'){
-            $allUsrs = $websocket->usr;
             $allInfo = array();
-            foreach($allUsrs as $val){
-                if(isset($val['info'])){
-                    $allInfo[] = $val['info'];
-                }
+            foreach($usrs as $val){
+                $allInfo[] = array(
+                    'usrid' => $val['usrid'],
+                    'usrnick' => $val['usrnick'],
+                    'pic' => $val['pic']
+                );
             }
-            $usrInfo = json_encode($allInfo,true);
             $msgs = array(
                 "type"=>"allusrinfo",
-                "msg"=>$usrInfo
+                "msg"=>json_encode($allInfo)
             );
             $websocket->log($msgs);
             $sendOneMsg['flag'] = 'one';
             $sendOneMsg['sign'] = $event['sign'];
-
         }elseif($recvMsg['type']=="getselfinfo"){
-            /*var_dump($_SERVER);
-            session_start();
-            $selfInfo = json_encode($_SESSION['usrinfo']);*/
-            /*$selfInfo = json_encode(getallheaders());
-            $msgs = '{"type":"getselfinfo","msg":'.$selfInfo.'}';
-            $websocket->log($msgs);
-            $sendOneMsg['flag'] = 'one';
-            $sendOneMsg['sign'] = $event['sign'];*/
-            /*session_end();*/
+
         }
 
     }
@@ -102,7 +90,6 @@ function WSevent($type,$event){
     }else{
         $logUsrs = $websocket->sockets;
         unset($logUsrs[0]);
-
         foreach($logUsrs as $val){
             socket_write($val, $msg, $msgLen);
         }

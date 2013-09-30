@@ -1,5 +1,4 @@
 var socketFed = {
-    usrInfo:{'type':'usrinfo','info':{/*"usrname":usrInfo['usrname'],*/"usrid":usrInfo['usrid'],"checkid":usrInfo['checkid']},'msg':"用户登录"},
     emptyVal:function(args){
         for(var i in args){
             if((/\s+/gi).test(args[i])||args[i]==""){
@@ -38,6 +37,7 @@ var socketFed = {
                 msgTxtBx.text(JSON.stringify(msgData));
                 break;
             case 'allusrinfo':
+                //alert(JSON.parse(msgData));
                 msgTxtBx.text(JSON.stringify(msgData));
                 break;
             case 'getselfinfo':
@@ -49,18 +49,16 @@ var socketFed = {
         }
     },
     socketLoadFun:function(host){
-        var socketHost = host||'172.16.3.9'
-        //var socketHost = host||'192.168.0.25'
+        //var socketHost = host||'172.16.3.9'
+        var socketHost = host||'192.168.0.25'
             ,_socket = null
             ,textBx = $('#text');
         function socketLink(){
             _socket = new WebSocket("ws://"+socketHost+":12345");
             _socket['onopen'] = function () {
                 document.title = '连接成功';
-                var sendData = JSON.stringify(socketFed.usrInfo);
-               // setTimeout(function(){
-                    _socket.send(sendData);
-               // },2000);
+                var sendData = JSON.stringify({'type':'usrinfo','info':{"usrid":usrInfo['usrid'],"checkid":usrInfo['checkid']},'msg':"用户登录"});
+                _socket.send(sendData);
             }
             _socket['onmessage'] = function (msg) {
                 socketFed.msgLog(msg);
@@ -82,11 +80,9 @@ var socketFed = {
                         ,sendData = JSON.stringify(_sendVal);
                     _socket.send(sendData);
                 }else if($(this).hasClass('J_getUsrs')){
-                    var sendData = JSON.stringify({"type":"getallusrinfo"});
-                    _socket.send(sendData);
+                    _socket.send('{"type":"getallusrinfo"}');
                 }else if($(this).hasClass('J_getSeftInfo')){
-                    var sendData = JSON.stringify({"type":"getselfinfo"});
-                    _socket.send(sendData);
+                    _socket.send('{"type":"getselfinfo"}');
                 }
                 return false;
             }

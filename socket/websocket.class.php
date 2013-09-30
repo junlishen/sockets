@@ -1,6 +1,5 @@
 <?php
 class websocket {
-    public $log;
     public $event;
     public $master;
     public $sockets = array();
@@ -15,7 +14,6 @@ class websocket {
         set_time_limit(0);
         ob_implicit_flush();
         $this->event = $config['event'];
-        $this->log = $config['log'];
         $this->master = $this->WebSocket($config['address'], $config['port']);
         $this->sockets[] = $this->master;
         $this->Mcache = new Memcache;
@@ -35,12 +33,11 @@ class websocket {
             $changes = $this->sockets;
             @socket_select($changes, $write = NULL, $except = NULL, NULL);//获取发送信息用户进程
             foreach ($changes as $sign) {
-
                 $signStr = (string)$sign;
-
                 if ($sign == $this->master) {
                     $client = socket_accept($this->master);
                     $this->sockets[] = $client;
+
                     $this->usr[$signStr] = array(
                         'socket' => $client,
                         'hand' => 0
@@ -50,18 +47,22 @@ class websocket {
                 } else {
                     $len = socket_recv($sign, $buffer, 2048, 0);
                     if ($len < 7) {
+                        $k = array_search($sign, $this->sockets);
+                        socket_close($sign);
+                        unset($this->sockets[$k]);
 
-                        $this->close($sign);
+                        $this->usr[$signStr]['hand'] = false;
+
                         $this->eventoutput('out', array( 'sign' => $sign));
-
                         continue;
                     }
                     if (@!$this->usr[$signStr]['hand']) { //没有握手进行握手
-                        $this->handshake($sign, $buffer);
+
+                        $this->usr[$signStr]['hand'] = $this->handshake($sign, $buffer);
+
                     } else {
                         $buffer = $this->uncode($buffer);
                         $this->eventoutput('msg', array('sign' => $sign, 'msg' => $buffer));
-
                     }
                 }
             }
@@ -70,13 +71,6 @@ class websocket {
 
     function eventoutput($type, $event) { //事件回调
         call_user_func($this->event,$type,$event);
-    }
-
-    function close($sign) { //通过标示断开连接
-        $k = array_search($sign, $this->sockets);
-        socket_close($sign);
-        unset($this->sockets[$k]);
-        $this->usr[(string)$sign]['hand']=0;
     }
 
     function handshake($sign, $buffer) {
@@ -88,13 +82,9 @@ class websocket {
         $new_message .= "Sec-WebSocket-Version: 13\r\n";
         $new_message .= "Connection: Upgrade\r\n";
         $new_message .= "Sec-WebSocket-Accept: " . $new_key . "\r\n\r\n";
-
         socket_write($sign, $new_message, strlen($new_message));
-        $this->usr[(string)$sign]['hand'] = 1;
-
         return true;
     }
-
     function uncode($str) {
         $mask = array();
         $data = '';
@@ -117,7 +107,6 @@ class websocket {
         }
         return $data;
     }
-
     function code($msg) {
         $msg = preg_replace(array('/\r$/', '/\n$/', '/\r\n$/',), '', $msg);
         $frame = array();
@@ -128,7 +117,6 @@ class websocket {
         $data = implode('', $frame);
         return pack("H*", $data);
     }
-
     function ord_hex($data) {
         $msg = '';
         $l = strlen($data);
@@ -137,9 +125,7 @@ class websocket {
         }
         return $msg;
     }
-
     function log($t) { //控制台输出
-        if ($this->log)
-            fwrite(STDOUT, iconv('utf-8', 'gbk//IGNORE', "\r\n".$t . "\r\n"));
+        fwrite(STDOUT, iconv('utf-8', 'gbk//IGNORE', "\n".$t . "\n"));
     }
 }
