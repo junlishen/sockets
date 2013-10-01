@@ -68,9 +68,8 @@ function WSevent($type,$event){
             }
             $msgs = array(
                 "type"=>"allusrinfo",
-                "msg"=>json_encode($allInfo)
+                "msg"=>json_encode($allInfo,true)
             );
-            $websocket->log($msgs);
             $sendOneMsg['flag'] = 'one';
             $sendOneMsg['sign'] = $event['sign'];
         }elseif($recvMsg['type']=="getselfinfo"){
@@ -90,7 +89,7 @@ function WSevent($type,$event){
     }else{
         $logUsrs = $websocket->sockets;
         unset($logUsrs[0]);
-        foreach($logUsrs as $val){
+        foreach($logUsrs as $k=>$val){
             socket_write($val, $msg, $msgLen);
         }
     }

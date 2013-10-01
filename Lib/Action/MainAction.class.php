@@ -4,4 +4,8 @@ class MainAction extends Action {
     function indexAct(){
         $this->display("Tpl/index.html");
     }
+
+    function mainAct(){
+        $this->display("Tpl/main.html");
+    }
 }

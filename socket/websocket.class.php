@@ -59,6 +59,7 @@ class websocket {
                     if (@!$this->usr[$signStr]['hand']) { //没有握手进行握手
 
                         $this->usr[$signStr]['hand'] = $this->handshake($sign, $buffer);
+                        $this->log($sign);
 
                     } else {
                         $buffer = $this->uncode($buffer);

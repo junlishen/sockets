@@ -1,5 +1,4 @@
 var socketFed = {
-    socket:null,
     emptyVal:function(args){
         for(var i in args){
             if((/\s+/gi).test(args[i])||args[i]==""){
@@ -27,8 +26,6 @@ var socketFed = {
             ,msgBx = $('#J_msgLogBx')
             ,msgTxtBx = $('#msgBx')
             ,msgInfo;
-        alert(args.data);
-        return;
         switch (msgData['type']){
             case 'usrin':
                 msgTxtBx.text(JSON.stringify(msgData));
@@ -54,19 +51,19 @@ var socketFed = {
     socketLoadFun:function(host){
         //var socketHost = host||'172.16.3.9'
         var socketHost = host||'192.168.0.25'
-            ,_this = this
+            ,_socket = null
             ,textBx = $('#text');
         function socketLink(){
-            _this['socket'] = new WebSocket("ws://"+socketHost+":12345");
-            _this['socket']['onopen'] = function () {
+            _socket = new WebSocket("ws://"+socketHost+":12345");
+            _socket['onopen'] = function () {
                 document.title = '连接成功';
                 var sendData = JSON.stringify({'type':'usrinfo','info':{"usrid":usrInfo['usrid'],"checkid":usrInfo['checkid']},'msg':"用户登录"});
-                _this['socket'].send(sendData);
+                _socket.send(sendData);
             }
-            _this['socket']['onmessage'] = function (msg) {
+            _socket['onmessage'] = function (msg) {
                 socketFed.msgLog(msg);
             }
-            _this['socket']['onclose'] = function () {
+            _socket['onclose'] = function () {
                 document.title = '断开连接';
             }
         }
@@ -88,6 +85,29 @@ var socketFed = {
                     _socket.send('{"type":"getselfinfo"}');
                 }
                 return false;
+            }
+        });
+    },
+    login:function(){
+        var _loginBx = $('.socket-login-form');
+        _loginBx.show();
+        /*$('.socket-login-form').hide();*/
+        $("button",_loginBx).on({
+            click:function(){
+                var _this = $(this)
+                    ,formVals;
+                if(_this.hasClass('socket-subform')){
+                    formVals = socketFed.serialzeVal($('#socket-login-form').serializeArray());
+                    if(!socketFed.emptyVal(formVals)){
+                        socketFed.usrInfo['info'] = formVals;
+                        _loginBx.hide();
+                        socketFed.socketLoadFun(/*window['location']['hostname']*/);
+                    }else{
+                        alert('请输入你的登录信息');
+                    }
+                }else{
+                    _loginBx.hide();
+                }
             }
         });
     }

@@ -1,52 +1,48 @@
 <include file="Tpl/header.html"/>
-<body class="page-header-fixed"  id="chatIn">
-<include file="Tpl/head_nav.html"/>
-<div class="page-container">
-    <include file="Tpl/side_left.html"/>
-    <div class="page-content">
-        <div class="container-fluid">
-        <include file="Tpl/crumb.html"/>
-        <div class="row-fluid">
-            <div class="span8">
-                <div class="portlet box green chat-list-comments">
-                    <div class="portlet-title">
-                        <div class="caption"><i class="icon-comments"></i>聊天内容</div>
-                    </div>
-                    <div class="portlet-body">
-                        <ul class="msgLogBx" id="J_msgLogBx"></ul>
-                        <div id="J_controlBx">
-                            <input type="button" class="J_connetSocket" value="连接">
-                            <input type="button" class="J_disSocket" value="断开">
-                            <input type="text" id="text" value="">
-                            <input type="button" class="J_sendSocket" value="发送">
-                            <input type="button" class="J_getUsrs" value="获取用户">
-                            <input type="button" class="J_getSeftInfo" value="获取本人信息">
-                        </div>
-                        <div id="msgBx"></div>
-                    </div>
+<body>
+    <div class="row-fluid">
+        <div class="span8">
+            <div class="portlet box green chat-list-comments">
+                <div class="portlet-title">
+                    <div class="caption"><i class="icon-comments"></i>聊天内容</div>
                 </div>
-            </div>
-            <div class="span4">
-                <div class="portlet box blue chat-list-users">
-                    <div class="portlet-title">
-                        <div class="caption"><i class="icon-group"></i>聊天组</div>
+                <div class="portlet-body">
+                    <ul class="msgLogBx" id="J_msgLogBx"></ul>
+                    <div id="J_controlBx">
+                        <input type="button" class="J_connetSocket" value="连接">
+                        <input type="button" class="J_disSocket" value="断开">
+                        <input type="text" id="text" value="">
+                        <input type="button" class="J_sendSocket" value="发送">
+                        <input type="button" class="J_getUsrs" value="获取用户">
+                        <input type="button" class="J_getSeftInfo" value="获取本人信息">
                     </div>
-                    <div class="portlet-body">
-
-                    </div>
+                    <div id="msgBx"></div>
                 </div>
             </div>
         </div>
+        <div class="span4">
+            <div class="portlet box blue chat-list-users">
+                <div class="portlet-title">
+                    <div class="caption"><i class="icon-group"></i>聊天组</div>
+                </div>
+                <div class="portlet-body">
+
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<include file="Tpl/footer.html"/>
-<script type="text/javascript" src="/media/js/socket/socket.js"></script>
-<script type="text/javascript">
-    var chat = {"id":null};
-    $(function(){
-        socketFed.socketLoadFun();
-    });
-</script>
+    <script type="text/javascript" src="/media/js/socket/chatin.js"></script>
+    <script type="text/javascript">
+        window.onload = function(){
+            chatFed.chatInLoadFun();
+        };
+    </script>
+    <!--<script type="text/javascript" src="/media/js/socket/socket.js"></script>
+    <script type="text/javascript">
+        var chat = {"id":null};
+        $(function(){
+            socketFed.socketLoadFun();
+        });
+    </script>-->
 </body>
 </html>
