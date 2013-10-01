@@ -18,7 +18,7 @@ var socketFed = {
         return val;
     },
     getTime:function(dataParse){
-        var time = new Date(dataParse);;
+        var time = new Date(dataParse);
         return time.getHours()+":"+time.getMinutes()+":"+time.getSeconds();
     },
     msgLog:function(args){
@@ -40,7 +40,6 @@ var socketFed = {
                 msgTxtBx.text(JSON.stringify(msgData));
                 break;
             case 'allusrinfo':
-                //alert(JSON.parse(msgData));
                 msgTxtBx.text(JSON.stringify(msgData));
                 break;
             case 'getselfinfo':

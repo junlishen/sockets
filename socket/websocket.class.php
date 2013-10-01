@@ -2,9 +2,10 @@
 class websocket {
     public $event;
     public $master;
-    public $sockets = array();
-    public $usr;
     public $Mcache;
+    public $sockets = array();
+    public $usr = array();
+    public $chats=array();
 
     public function __construct($config) {
         if (substr(php_sapi_name(), 0, 3) !== 'cli') {
@@ -19,7 +20,6 @@ class websocket {
         $this->Mcache = new Memcache;
         $this->Mcache->connect("127.0.0.1", 11211) or die ("Could not connect");
     }
-
     function WebSocket($address, $port) {
         $server = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
         socket_set_option($server, SOL_SOCKET, SO_REUSEADDR, 1);
@@ -33,37 +33,26 @@ class websocket {
             $changes = $this->sockets;
             @socket_select($changes, $write = NULL, $except = NULL, NULL);//获取发送信息用户进程
             foreach ($changes as $sign) {
-                $signStr = (string)$sign;
                 if ($sign == $this->master) {
                     $client = socket_accept($this->master);
                     $this->sockets[] = $client;
-
-                    $this->usr[$signStr] = array(
-                        'socket' => $client,
-                        'hand' => 0
-                    );
-
                     $this->eventoutput('in', array( 'sign' => $sign));
                 } else {
+                    $k = array_search($sign, $this->sockets);
                     $len = socket_recv($sign, $buffer, 2048, 0);
                     if ($len < 7) {
-                        $k = array_search($sign, $this->sockets);
                         socket_close($sign);
                         unset($this->sockets[$k]);
-
-                        $this->usr[$signStr]['hand'] = false;
-
-                        $this->eventoutput('out', array( 'sign' => $sign));
+                        unset($this->usr[$k]);
+                        $this->eventoutput('out', array( 'sign' => $sign,"key"=>$k));
                         continue;
                     }
-                    if (@!$this->usr[$signStr]['hand']) { //没有握手进行握手
-
-                        $this->usr[$signStr]['hand'] = $this->handshake($sign, $buffer);
-                        $this->log($sign);
-
-                    } else {
+                    if (isset($this->usr[$k])) {//没有握手进行握手
                         $buffer = $this->uncode($buffer);
-                        $this->eventoutput('msg', array('sign' => $sign, 'msg' => $buffer));
+                        $this->eventoutput('msg', array('sign' => $sign, 'msg' => $buffer,"key"=>$k));
+                    } else {
+                        $this->handshake($sign, $buffer);
+                        $this->usr[$k] = 1;
                     }
                 }
             }

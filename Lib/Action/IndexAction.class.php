@@ -37,6 +37,7 @@ class IndexAction extends Action {
             'usrname'=>$logData['username'],
             'email'=>$logData['email'],
             'pic'=>$logData['pic'],
+            'logintime'=>date("Y-m-d H:i:s"),
             'checkid'=> $this->random_str(15)
         );
         $cUsrs = $Mcache->get('usrs');

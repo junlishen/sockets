@@ -41,12 +41,12 @@ function WSevent($type,$event){
                 'type'=>"msg",
                 'id'=>$usrid,
                 'usrnick'=>$usr['usrnick'],
-                'usrpic'=>$usr['pic'],
+                'pic'=>$usr['pic'],
                 'msg'=>$recvMsg['msg'],
-                'type'=>$recvMsg['msg']
             );
         }else if($recvMsg['type']=='usrinfo'){
             $usrid = $recvMsg['info']['usrid'];
+            $websocket->usr[$event['key']] = $usrid;
             $usrInfo = array(
                 'usrid'=>$usrs[$usrid]['usrid'],
                 'usrnick'=>$usrs[$usrid]['usrnick'],
@@ -68,7 +68,7 @@ function WSevent($type,$event){
             }
             $msgs = array(
                 "type"=>"allusrinfo",
-                "msg"=>json_encode($allInfo,true)
+                "msg"=>$allInfo
             );
             $sendOneMsg['flag'] = 'one';
             $sendOneMsg['sign'] = $event['sign'];

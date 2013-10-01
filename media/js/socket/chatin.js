@@ -7,6 +7,15 @@ function jL(id){
 var socketFed = window.parent['socketFed']
     ,socket = socketFed['socket']
     ,chatFed = {
+    usrList:function(data){
+        var listStr = ''
+            ,nData;
+        for(var i =0;i<data.length;i++){
+            nData = data[i];
+            listStr+='<li usrid="'+nData['usrid']+'"><a href="javascript:;" data-rel="fancybox-button" class="fancybox-button"><img src="'+(nData['pic']||'/media/null.gif')+'" alt="'+nData['usrnick']+'"></a></li>';
+        }
+        return listStr;
+    },
     msgLog:function(args){
         var messageTim = socketFed.getTime(args['timeStamp']/1000)
             ,msgData = JSON.parse(args.data)
@@ -25,6 +34,7 @@ var socketFed = window.parent['socketFed']
                 break;
             case 'allusrinfo':
                 msgTxtBx.text(JSON.stringify(msgData));
+                $('#usrlist').append(this.usrList(msgData['msg']));
                 break;
             case 'getselfinfo':
                 msgTxtBx.text(JSON.stringify(msgData));
@@ -43,14 +53,16 @@ var socketFed = window.parent['socketFed']
     },
     chatInLoadFun:function(){
         var _this = this;
+        _this.send({"type":"getallusrinfo"});
         jL('.J_sendSocket').onclick = function(){
             _this.send({"type":"msg","usrid":usrInfo['usrid'],"msg":jL("#text").value});
         };
+        /*
         jL('.J_getUsrs').onclick = function(){
             _this.send({"type":"getallusrinfo"});
         }
         jL('.J_getSeftInfo').onclick = function(){
             _this.send('{"type":"getselfinfo"}');
-        }
+        }*/
     }
 };

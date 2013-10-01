@@ -7,14 +7,14 @@
                     <div class="caption"><i class="icon-comments"></i>聊天内容</div>
                 </div>
                 <div class="portlet-body">
-                    <ul class="msgLogBx" id="J_msgLogBx"></ul>
+                    <ul class="msgLogBx " id="J_msgLogBx"></ul>
                     <div id="J_controlBx">
                         <input type="button" class="J_connetSocket" value="连接">
                         <input type="button" class="J_disSocket" value="断开">
                         <input type="text" id="text" value="">
                         <input type="button" class="J_sendSocket" value="发送">
-                        <input type="button" class="J_getUsrs" value="获取用户">
-                        <input type="button" class="J_getSeftInfo" value="获取本人信息">
+                        <!--<input type="button" class="J_getUsrs" value="获取用户">
+                        <input type="button" class="J_getSeftInfo" value="获取本人信息">-->
                     </div>
                     <div id="msgBx"></div>
                 </div>
@@ -25,8 +25,8 @@
                 <div class="portlet-title">
                     <div class="caption"><i class="icon-group"></i>聊天组</div>
                 </div>
-                <div class="portlet-body">
-
+                <div class="portlet-body chatInUsrs" id="chatInUsrs">
+                    <ul class="unstyled blog-images" id="usrlist"></ul>
                 </div>
             </div>
         </div>
@@ -37,12 +37,12 @@
             chatFed.chatInLoadFun();
         };
     </script>
-    <!--<script type="text/javascript" src="/media/js/socket/socket.js"></script>
-    <script type="text/javascript">
-        var chat = {"id":null};
-        $(function(){
-            socketFed.socketLoadFun();
-        });
-    </script>-->
+    <style type="text/css">
+        .msgLogBx{height:600px;}
+        .blog-sidebar h2{height:30px;margin-top:0;font-size:20px;line-height:22px;}
+        .blog-images li a{float:left;margin:4px 0 0 8px;}
+        .blog-images li img{width:100px;height:120px;padding:3px;border:2px solid #d4d4d4;transition:all 1s;}
+        .portlet.box .chatInUsrs{overflow:hidden;padding:4px;}
+    </style>
 </body>
 </html>
